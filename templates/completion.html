@@ -4,4 +4,11 @@
 
   <h1>Thanks for completing this survey!</h1>
 
+  <!-- Need to display a list of questions and the user's answers -->
+  {% for item in prompt_to_answer %}
+  <!-- item[0] is the prompt, item[1] is the user's answer -->
+  <!-- [(prompt1, answer1), (prompt2, answer2), (prompt3, answer3)]-->
+  <p>{{ item[0] }}: {{ item[1] }}</p>
+  {% endfor %}
+
 {% endblock %}
