@@ -30,7 +30,9 @@ def view_questions(qnum):
         prompt=survey.questions[qnum].prompt
         )
 
-
-
-
-
+@app.post("/answer")
+def handle_answer():
+    choice_picked = request.form["answer"]
+    print("value of answer in request.form:", choice_picked)
+    RESPONSES.append(choice_picked)
+    # return redirect("/questions/0")
