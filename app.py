@@ -17,3 +17,20 @@ def survey_start():
         instructions=survey.instructions
     )
 
+@app.post("/begin")
+def initial_redirect():
+    return redirect("/questions/0")
+
+@app.get("/questions/<int:qnum>")
+def view_questions(qnum):
+    return render_template("question.html",
+
+        choices=survey.questions[qnum].choices,
+        allow_text = survey.questions[qnum].allow_text,
+        prompt=survey.questions[qnum].prompt
+        )
+
+
+
+
+
